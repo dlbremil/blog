@@ -73,19 +73,371 @@
         }
         
         .silex-id-1498189859064-22 {
-            width: 147px;
-            background-color: rgb(255, 255, 255);
-            min-height: 33px;
-            top: 370px;
-            left: 322px;
+            width: 32px;
+            top: 0px;
+            left: 0px;
+            // checkbox color
+            $btn_lightblue: #03a9f4;
+            $btn_orange: #ff9800;
+            $btn_amber: #ffc107;
+            $btn_green: #4caf50;
+            $btn_teal: #009688;
+            $btn_cyan: #00bcd4;
+            $btn_indigo: #3f51b5;
+            $btn_deeppurple: #673ab7;
+            $btn_pink: #e91e63;
+            $btn_red: #f44336;
+            $btn_yellow: #ffeb3b;
+            $btn_lime: #cddc39;
+            $btn_brown: #795548;
         }
-        
+    }
+    // column generator
+    @mixin colmk($numrows, $margin) {
+        width: ((100% - (($numRows - 1) * $margin)) / $numRows);
+    }
+}
+
+/* -----------------------------------------------------
+  body
+-------------------------------------------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    color: #717171;
+}
+a {
+    color: #03a9f4;
+    outline: none;
+    right: 0px;
+    transition: all .2s ease;
+    transform: scale(1.6);
+    &.open {
+        transform: translate3d(0, 0, 0) !important;
+        height: 32px;
+        display: inline-block;
+        cursor: pointer;
+        i {
+            color: rgba(0, 0, 0, 0.575);
+        }
+    }
+    p {
+        margin: 0 0 8px 0;
+        li {
+            float: left;
+            a {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+}
+
+/* -----------------------------------------------------
+    main
+-------------------------------------------------------- */
+main {
+    width: 100%;
+    margin: 0;
+    section {
+        display: block;
+    }
+    .heading {
+        margin: 0;
+    }
+    .wrap {
+        overflow: hidden;
+        .holder {
+            float: left;
+        }
+        .captions {
+            padding: 8px;
+            &.col-4 {
+                display: block;
+                .heading {
+                    color: #7a7a7a;
+                }
+                .holder {
+                    .captions {
+                        color: #7a7a7a;
+                    }
+                }
+                /* -----------------------------------------------------
+   header
+-------------------------------------------------------- */
+                header {
+                    display: block;
+                    h2 {
+                        margin: 0;
+                    }
+                }
+                /* -----------------------------------------------------
+    footer
+-------------------------------------------------------- */
+                footer {
+                    display: block;
+                    overflow: hidden;
+                    .row {
+                        width: 100%;
+                        span {
+                            color: rgba(0, 0, 0, 0.525);
+                            input[type="checkbox"] {
+                                visibility: hidden;
+                                position: absolute;
+                                bottom: 7px;
+                                opacity: 0;
+                                direction: ltr;
+                            }
+                        }
+                    }
+                    label,
+                    .label {
+                        cursor: pointer;
+                        border: 2px solid #717171;
+                        &.animated {
+                            display: block;
+                            background-color: #dbdbdb;
+                            min-height: 80px;
+                            margin-bottom: 8px;
+                            font-size: 24px;
+                            font-family: 'Material Icons';
+                            -moz-box-sizing: border-box;
+                            -ms-box-sizing: border-box;
+                            -o-box-sizing: border-box;
+                            box-sizing: border-box;
+                            text-decoration: none;
+                        }
+                    }
+                    .color-box {
+                        position: fixed;
+                        border-radius: 50%;
+                        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.275);
+                        z-index: 1;
+                    }
+                    .show-box {
+                        position: absolute;
+                        line-height: 1;
+                        margin-left: 8px;
+                    }
+                    .colors-list {
+                        margin: 0;
+                        margin-right: 5px;
+                        &.teal {
+                            background-color: $btn_teal;
+                        }
+                        &.lightblue {
+                            background-color: $btn_lightBlue;
+                        }
+                        &.green {
+                            background-color: $btn_green;
+                        }
+                        &.amber {
+                            background-color: $btn_amber;
+                        }
+                        &.orange {
+                            background-color: $btn_orange;
+                        }
+                        &.cyan {
+                            background-color: $btn_cyan;
+                        }
+                        &.pink {
+                            background-color: $btn_pink;
+                        }
+                        &.deeppurple {
+                            background-color: $btn_deepPurple;
+                        }
+                        &.indigo {
+                            background-color: $btn_indigo;
+                        }
+                        &.red {
+                            background-color: $btn_red;
+                        }
+                        &.yellow {
+                            background-color: $btn_yellow;
+                        }
+                        &.lime {
+                            background-color: $btn_lime;
+                        }
+                        &.brown {
+                            background-color: $btn_brown;
+                            max-width: 860px;
+                            text-align: center;
+                        }
+                        .demo {
+                            min-height: 100px;
+                            justify-content: center;
+                            align-content: center;
+                            font-weight: normal;
+                            border-top: transparent;
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.275);
+                        }
+                        @media only screen and (max-width: 768px) {
+                            &.col-4 {
+                                @include colmk(3, 1%);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            &.bg-dark {
+                background-color: #333;
+            }
+        }
+    }
+    &.bg-light {
+        background-color: #FFF;
+        //box-shadow: none; 
+        letter-spacing: normal;
+    }
+    .footer-content {
+        margin: 0 8px;
+    }
+}
+
+}
+
+/* ----------------------------------------------------------------------
+  material design checkbox - by ravikumar chauhan
+------------------------------------------------------------------------- */
+.rkmd-checkbox {
+    color: #818181;
+    .input-checkbox {
+        position: relative;
+        vertical-align: -6px;
+        font-style: normal;
+        text-transform: none;
+        word-wrap: normal;
+        white-space: nowrap;
+        /* support for all webkit browsers. */
+        -webkit-font-smoothing: antialiased;
+        /* support for safari and chrome. */
+        text-rendering: optimizeLegibility;
+        /* support for firefox. */
+        -moz-osx-font-smoothing: grayscale;
+        /* support for ie. */
+        font-feature-settings: 'liga';
+    }
+}
+
+}
+&.checkbox-light {
+    label,
+    .label {
+        color: #FFF;
+    }
+}
+
+/* ----------------------------------------------------------------------
+  rotate checkbox - by ravikumar chauhan
+------------------------------------------------------------------------- */
+.rkmd-checkbox {
+    &.checkbox-rotate {
+        .input-checkbox {
+            input[type="checkbox"] {
+                &+.checkbox {
+                    cursor: pointer;
+                    border-width: 2px;
+                    border-style: solid;
+                    border-left: transparent;
+                }
+            }
+        }
+    }
+    /* ----------------------------------------------------------------------
+  checkbox ripple effect - by ravikumar chauhan
+------------------------------------------------------------------------- */
+    .rkmd-checkbox {
+        &.checkbox-ripple {
+            .ripple {
+                position: absolute;
+                animation-name: checkbox-ripple;
+                animation-duration: 400ms;
+                animation-timing-function: ease-out;
+            }
+        }
+        @include keyframes('checkbox-ripple') {
+            100% {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+/* ----------------------------------------------------------------------
+  checkbox ripple effect color - by ravikumar chauhan
+------------------------------------------------------------------------- */
+.rkmd-checkbox {
+    .checkbox-teal {
+        .ripple {
+            background-color: $btn_teal !important;
+        }
+    }
+    .checkbox-lightblue {
+        .ripple {
+            background-color: $btn_lightBlue !important;
+        }
+    }
+    .checkbox-green {
+        .ripple {
+            background-color: $btn_green !important;
+        }
+    }
+    .checkbox-amber {
+        .ripple {
+            background-color: $btn_amber !important;
+        }
+    }
+    .checkbox-orange {
+        .ripple {
+            background-color: $btn_orange !important;
+        }
+    }
+    .checkbox-cyan {
+        .ripple {
+            background-color: $btn_cyan !important;
+        }
+    }
+    .checkbox-pink {
+        .ripple {
+            background-color: $btn_pink !important;
+        }
+    }
+    .checkbox-deeppurple {
+        .ripple {
+            background-color: $btn_deepPurple !important;
+        }
+    }
+    .checkbox-indigo {
+        .ripple {
+            background-color: $btn_indigo !important;
+        }
+    }
+    .checkbox-red {
+        .ripple {
+            background-color: $btn_red !important;
+        }
+    }
+    .checkbox-yellow {
+        .ripple {
+            background-color: $btn_yellow !important;
+        }
+    }
+    .checkbox-lime {
+        .ripple {
+            background-color: $btn_lime !important;
+        }
+    }
+    .checkbox-brown {
+        .ripple {
+            background-color: $btn_brown !important;
+        }
         .silex-id-1478366450713-3 {
             top: 100px;
             left: NaNpx;
             background-color: transparent;
         }
-        
         .silex-id-1478366450713-2 {
             min-height: 100px;
             background-color: transparent;
@@ -93,7 +445,7 @@
     </style>
     <title></title>
     <script type="text/javascript" class="silex-json-styles">
-        [{"desktop":{"body-initial":{"background-color":"rgba(255,255,255,1)"},"silex-id-1474394621033-3":{"top":"5px","left":"0px"},"silex-id-1474394621032-2":{"min-height":"600px","background-color":"transparent"},"silex-id-1474394605264-1":{"min-height":"100px","width":"100px","top":"100px","left":"100px"},"silex-id-1474394605263-0":{"min-height":"100px","background-color":"transparent"},"silex-id-1478366444112-0":{"min-height":"100px","background-color":"transparent"},"silex-id-1478366444112-1":{"top":"100px","left":"NaNpx","background-color":"transparent"},"silex-id-1478366450713-2":{"min-height":"100px","background-color":"transparent"},"silex-id-1478366450713-3":{"top":"100px","left":"NaNpx","background-color":"transparent"},"silex-id-1498189195116-18":{"width":"961px","min-height":"28px","top":"69px","left":"0px"},"silex-id-1498189267066-19":{"width":"112px","min-height":"68px","background-color":"transparent","top":"15px","left":"429px"},"silex-id-1498189380999-20":{"width":"959px","min-height":"39px","top":"161px","left":"0px"},"silex-id-1498189462963-21":{"width":"349px","background-color":"rgb(255, 255, 255)","min-height":"100px","top":"218px","left":"312px"},"silex-id-1498189859064-22":{"width":"147px","background-color":"rgb(255, 255, 255)","min-height":"33px","top":"370px","left":"322px"}},"mobile":{},"componentData":{"silex-id-1498189267066-19":{"name":"share1","templateName":"share","networks":["Facebook","Twitter","Google+"]}}}]
+        [{"desktop":{"body-initial":{"background-color":"rgba(255,255,255,1)"},"silex-id-1474394621033-3":{"top":"5px","left":"0px"},"silex-id-1474394621032-2":{"min-height":"600px","background-color":"transparent"},"silex-id-1474394605264-1":{"min-height":"100px","width":"100px","top":"100px","left":"100px"},"silex-id-1474394605263-0":{"min-height":"100px","background-color":"transparent"},"silex-id-1478366444112-0":{"min-height":"100px","background-color":"transparent"},"silex-id-1478366444112-1":{"top":"100px","left":"NaNpx","background-color":"transparent"},"silex-id-1478366450713-2":{"min-height":"100px","background-color":"transparent"},"silex-id-1478366450713-3":{"top":"100px","left":"NaNpx","background-color":"transparent"},"silex-id-1498189195116-18":{"width":"961px","min-height":"28px","top":"69px","left":"0px"},"silex-id-1498189267066-19":{"width":"112px","min-height":"68px","background-color":"transparent","top":"15px","left":"429px"},"silex-id-1498189380999-20":{"width":"959px","min-height":"39px","top":"161px","left":"0px"},"silex-id-1498189462963-21":{"width":"349px","background-color":"rgb(255, 255, 255)","min-height":"100px","top":"218px","left":"312px"},"silex-id-1498189859064-22":{"width":"32px","top":"0px","left":"0px","// checkbox color\n$btn_lightblue":"#03a9f4","$btn_orange":"#ff9800","$btn_amber":"#ffc107","$btn_green":"#4caf50","$btn_teal":"#009688","$btn_cyan":"#00bcd4","$btn_indigo":"#3f51b5","$btn_deeppurple":"#673ab7","$btn_pink":"#e91e63","$btn_red":"#f44336","$btn_yellow":"#ffeb3b","$btn_lime":"#cddc39","$btn_brown":"#795548","}\n}\n\n// column generator\n@mixin colmk($numrows, $margin) {\n  width":"((100% - (($numRows - 1) * $margin)) / $numRows)","}\n}\n\n/* -----------------------------------------------------\n  body\n-------------------------------------------------------- */\nbody {\n  margin":"0","padding":"0","color":"#717171","}\n\na {\n  color":"#03a9f4","outline":"none","right":"0px","transition":"all .2s ease","transform":"scale(1.6)","&.open { transform":"translate3d(0,0,0) !important","height":"32px","display":"inline-block","cursor":"pointer","i {\n      color":"rgba(0,0,0,0.575)","}\n  }\n\n  p { \n    margin":"0 0 8px 0","li {\n      float":"left","a {\n        display":"inline-block","}\n      }\n    }\n  }\n}\n\n/* -----------------------------------------------------\n    main\n-------------------------------------------------------- */\nmain {\n  width":"100%","margin":"0","section {\n    display":"block","}\n\n    .heading {\n      margin":"0","}\n\n    .wrap {\n      overflow":"hidden",".holder {\n        float":"left","}\n\n        .captions {\n          padding":"8px","&.col-4 {\n            display":"block",".heading { color":"#7a7a7a","}\n\n      .holder {\n        .captions {\n          color":"#7a7a7a","}\n}\n\n/* -----------------------------------------------------\n   header\n-------------------------------------------------------- */\nheader {\n  display":"block","h2 {\n    margin":"0","}\n}\n\n/* -----------------------------------------------------\n    footer\n-------------------------------------------------------- */\nfooter {\n  display":"block","overflow":"hidden",".row {\n    width":"100%","span {\n      color":"rgba(0, 0, 0, 0.525)","input[type=\"checkbox\"] {\n      visibility":"hidden","position":"absolute","bottom":"7px","opacity":"0","direction":"ltr","}\n    }\n  }\n\n  label, .label { cursor":"pointer","border":"2px solid #717171","&.animated {\n        display":"block","background-color":"#dbdbdb","min-height":"80px","margin-bottom":"8px","font-size":"24px","font-family":"'Material Icons'","-moz-box-sizing":"border-box","-ms-box-sizing":"border-box","-o-box-sizing":"border-box","box-sizing":"border-box","text-decoration":"none","}\n}\n\n.color-box {\n  position":"fixed","border-radius":"50%","box-shadow":"0px 2px 5px 0px rgba(0, 0, 0, 0.275)","z-index":"1","}\n\n  .show-box {\n    position":"absolute","line-height":"1","margin-left":"8px","}\n\n  .colors-list {\n    margin":"0","margin-right":"5px","&.teal {background-color":"$btn_teal","}\n        &.lightblue {background-color":"$btn_lightBlue","}\n        &.green {background-color":"$btn_green","}\n        &.amber {background-color":"$btn_amber","}\n        &.orange {background-color":"$btn_orange","}\n        &.cyan {background-color":"$btn_cyan","}\n        &.pink {background-color":"$btn_pink","}\n        &.deeppurple {background-color":"$btn_deepPurple","}\n        &.indigo {background-color":"$btn_indigo","}\n        &.red {background-color":"$btn_red","}\n        &.yellow {background-color":"$btn_yellow","}\n        &.lime {background-color":"$btn_lime","}\n        &.brown {background-color":"$btn_brown","max-width":"860px","text-align":"center","}\n\n        .demo {\n          min-height":"100px","justify-content":"center","align-content":"center","font-weight":"normal","border-top":"transparent","border-bottom":"1px solid rgba(255,255,255,0.275)","}\n\n        @media only screen and (max-width":"768px) {\n          &.col-4 {\n            @include colmk(3, 1%)","}\n          }\n        }\n      }\n    }\n\n    &.bg-dark {\n      background-color":"#333","}\n      }\n    }\n\n    &.bg-light {\n      background-color":"#FFF","//box-shadow":"none","letter-spacing":"normal","}\n\n  .footer-content {\n    margin":"0 8px","}\n  }\n}\n\n/* ----------------------------------------------------------------------\n  material design checkbox - by ravikumar chauhan\n------------------------------------------------------------------------- */\n.rkmd-checkbox {\n  color":"#818181",".input-checkbox {\n    position":"relative","vertical-align":"-6px","font-style":"normal","text-transform":"none","word-wrap":"normal","white-space":"nowrap","/* support for all webkit browsers. */\n        -webkit-font-smoothing":"antialiased","/* support for safari and chrome. */\n        text-rendering":"optimizeLegibility","/* support for firefox. */\n        -moz-osx-font-smoothing":"grayscale","/* support for ie. */\n        font-feature-settings":"'liga'","}\n    }\n  }\n\n  &.checkbox-light {\n    label, .label { color":"#FFF","}\n}\n\n/* ----------------------------------------------------------------------\n  rotate checkbox - by ravikumar chauhan\n------------------------------------------------------------------------- */\n.rkmd-checkbox {\n  &.checkbox-rotate {\n    .input-checkbox {\n      input[type=\"checkbox\"] {\n        & + .checkbox {\n          cursor":"pointer","border-width":"2px","border-style":"solid","border-left":"transparent","}\n    }\n  }\n}\n\n/* ----------------------------------------------------------------------\n  checkbox ripple effect - by ravikumar chauhan\n------------------------------------------------------------------------- */\n.rkmd-checkbox {\n  &.checkbox-ripple {\n    .ripple {\n      position":"absolute","animation-name":"checkbox-ripple","animation-duration":"400ms","animation-timing-function":"ease-out","}\n    }\n\n    @include keyframes('checkbox-ripple') {\n      100% {\n        opacity":"0","}\n    }\n  }\n}\n\n/* ----------------------------------------------------------------------\n  checkbox ripple effect color - by ravikumar chauhan\n------------------------------------------------------------------------- */\n.rkmd-checkbox {\n  .checkbox-teal {\n    .ripple { background-color":"$btn_teal !important","}\n  }\n\n  .checkbox-lightblue {\n    .ripple { background-color":"$btn_lightBlue !important","}\n  }\n\n  .checkbox-green {\n    .ripple { background-color":"$btn_green !important","}\n  }\n\n  .checkbox-amber {\n    .ripple { background-color":"$btn_amber !important","}\n  }\n\n  .checkbox-orange {\n    .ripple { background-color":"$btn_orange !important","}\n  }\n\n  .checkbox-cyan {\n    .ripple { background-color":"$btn_cyan !important","}\n  }\n\n  .checkbox-pink {\n    .ripple { background-color":"$btn_pink !important","}\n  }\n\n  .checkbox-deeppurple {\n    .ripple { background-color":"$btn_deepPurple !important","}\n  }\n\n  .checkbox-indigo {\n    .ripple { background-color":"$btn_indigo !important","}\n  }\n\n  .checkbox-red {\n    .ripple { background-color":"$btn_red !important","}\n  }\n\n  .checkbox-yellow {\n    .ripple { background-color":"$btn_yellow !important","}\n  }\n\n  .checkbox-lime {\n    .ripple { background-color":"$btn_lime !important","}\n  }\n\n  .checkbox-brown {\n    .ripple { background-color":"$btn_brown !important"}},"mobile":{},"componentData":{"silex-id-1498189267066-19":{"name":"share1","templateName":"share","networks":["Facebook","Twitter","Google+"]}}}]
     </script>
 
 
